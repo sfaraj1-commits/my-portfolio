@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suzan Faraj | Full-Stack & UI/UX Developer</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Modal Internal CSS -->
+    <style>
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 85%;
+            max-height: 80vh;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            object-fit: contain;
+            animation: zoomIn 0.3s ease-in-out;
+        }
+
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ffffff;
+            padding: 15px 0;
+            font-size: 1.1rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: #ff4d4d;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .cert-card img, .case-img img {
+            cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .cert-card img:hover, .case-img img:hover {
+            transform: scale(1.03);
+            filter: brightness(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator">
+        <a href="#home" class="scroll-step active">01</a>
+        <a href="#about" class="scroll-step">02</a>
+        <a href="#works" class="scroll-step">03</a>
+        <a href="#skills" class="scroll-step">04</a>
+        <a href="#certificates" class="scroll-step">05</a>
+        <a href="#contact" class="scroll-step">06</a>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <a class="logo" href="#home">SUZAN<span>*</span></a>
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#works">WORKS</a>
+            <a href="#skills">SKILLS</a>
+            <a href="#certificates">CERTIFICATES</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+        <div class="header-actions">
+            <a class="btn-primary" href="#contact">GET IN TOUCH</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero grid-bg" id="home">
+            <div class="hero-content">
+                <span class="hero-tag">Technology Management & Full-Stack Development</span>
+                <h1>SUZAN FARAJ<span>*</span></h1>
+                <p class="intro-text">
+                    I design and build modern digital experiences — from <b>UI/UX Design</b> to <b>Front-End, Back-End, and APIs.</b>
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#works" class="btn-primary">VIEW MY WORK →</a>
+                    <a href="#contact" class="btn-secondary">GET IN TOUCH</a>
+                </div>
+            </div>
+
+            <!-- Profile Visual with Orbits & Floating Status -->
+            <div class="hero-visual">
+                <div class="floating-badge badge-1">UI/UX</div>
+                <div class="floating-badge badge-2">Laravel</div>
+                <div class="floating-badge badge-3">HTML / CSS</div>
+                <div class="floating-badge badge-4">APIs & Node</div>
+
+                <div class="photo-wrapper">
+                    <img src="image/profile.jpg.jpeg" alt="Suzan Faraj">
+                </div>
+
+                <div class="status-card">
+                    <div class="status-dot"></div>
+                    <div class="status-info">
+                        <strong>AVAILABLE FOR WORK</strong>
+                        <span>Frontend / Full-Stack & UI/UX</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Live Browser Project Slider Preview -->
+            <div class="hero-browser-preview">
+                <div class="browser-header">
+                    <div class="dots">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="browser-url" id="preview-url">github.com/sfaraj1-commits</div>
+                </div>
+                <div class="browser-content">
+                    <div>
+                        <span class="preview-tag">FEATURED PROJECT PREVIEW</span>
+                        <h3 id="preview-title" class="preview-title">مساحاتي - Masahati Workspace Platform</h3>
+                        <p id="preview-desc" class="preview-desc">A comprehensive platform for space booking and facility management with smooth UI/UX workflow.</p>
+                    </div>
+                    <a href="https://github.com/sfaraj1-commits" target="_blank" class="btn-secondary btn-nowrap">Explore Case Study →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION WITH STATS -->
+        <section class="about grid-bg" id="about">
+            <div class="section-top">01 / ABOUT ME</div>
+            
+            <h2 class="section-title">Bridging Technical Precision & Creative UI/UX</h2>
+            <p class="section-description">
+                I am a Technology Management graduate and Full-Stack Web Developer. I combine structural administrative expertise with technical coding skills to deliver modern, intuitive, and responsive digital products.
+            </p>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="num">03+</div>
+                    <div class="label">Years Frontend</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">05+</div>
+                    <div class="label">Months Backend</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">10+</div>
+                    <div class="label">Completed Projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">100%</div>
+                    <div class="label">Dedication</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SELECTED WORKS - CASE STUDIES -->
+        <section class="works grid-bg" id="works">
+            <div class="section-top">02 / SELECTED WORKS</div>
+
+            <div class="case-studies">
+                <!-- Case Study 01: Masahati -->
+                <article class="case-card">
+                    <div>
+                        <span class="case-tag">01 / CASE STUDY</span>
+                        <h3 class="case-title">
+                            <a href="https://github.com/sfaraj1-commits" target="_blank" class="title-link">مساحاتي (Masahati)</a>
+                        </h3>
+                        <p class="case-desc">Workspace & Shared Booking Platform designed with end-to-end user experience in mind.</p>
+                        <div class="tag-list">
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">UI/UX</span>
+                        </div>
+                        <a href="https://github.com/sfaraj1-commits" target="_blank" class="btn-primary btn-sm">VIEW CASE STUDY →</a>
+                    </div>
+                    <div class="case-img">
+                        <img src="image/ChatGPT Image 1 أكتوبر 2026، 10_44_42 ص.png" alt="Masahati App Preview">
+                    </div>
+                </article>
+
+                <!-- Case Study 02: Skillora -->
+                <article class="case-card reverse">
+                    <div class="case-img">
+                        <img src="image/ChatGPT Image 8 أكتوبر 2026، 11_13_32 ص.png" alt="Skillora App Preview">
+                    </div>
+                    <div>
+                        <span class="case-tag">02 / CASE STUDY</span>
+                        <h3 class="case-title">
+                            <a href="https://github.com/sfaraj1-commits/Skillora" target="_blank" class="title-link">SKILLORA</a>
+                        </h3>
+                        <p class="case-desc">Learning & Skills Development Platform focusing on smooth student engagement.</p>
+                        <div class="tag-list">
+                            <span class="tech-tag">UI/UX Prototyping</span>
+                            <span class="tech-tag">Front-End</span>
+                            <span class="tech-tag">REST API</span>
+                        </div>
+                        <a href="https://github.com/sfaraj1-commits" target="_blank" class="btn-primary btn-sm">VIEW CASE STUDY →</a>
+                    </div>
+                </article>
+
+                <!-- Case Study 03: HomeFinder -->
+                <article class="case-card">
+                    <div>
+                        <span class="case-tag">03 / CASE STUDY</span>
+                        <h3 class="case-title">
+                            <a href="https://github.com/sfaraj1-commits" target="_blank" class="title-link">HomeFinder</a>
+                        </h3>
+                        <p class="case-desc">Property listing & Real Estate finding portal built with interactive UI filtering.</p>
+                        <div class="tag-list">
+                            <span class="tech-tag">Web Development</span>
+                            <span class="tech-tag">UI/UX</span>
+                        </div>
+                        <a href="https://github.com/sfaraj1-commits" target="_blank" class="btn-primary btn-sm">VIEW CASE STUDY →</a>
+                    </div>
+                    <div class="case-img">
+                        <img src="image/ChatGPT Image 8 أكتوبر 2026، 11_18_34 ص.png" alt="HomeFinder Portal Preview">
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section class="skills grid-bg" id="skills">
+            <div class="section-top">03 / SKILLS & EXPERTISE</div>
+
+            <div class="skills-grid">
+                <div class="skill-box">
+                    <h3>Frontend Development</h3>
+                    <ul>
+                        <li>HTML5 / CSS3 / JavaScript</li>
+                        <li>Responsive Web Design</li>
+                        <li>UI Animations & Micro-interactions</li>
+                    </ul>
+                </div>
+                <div class="skill-box">
+                    <h3>Backend & APIs</h3>
+                    <ul>
+                        <li>Laravel & PHP</li>
+                        <li>RESTful API Design</li>
+                        <li>Database Basics</li>
+                    </ul>
+                </div>
+                <div class="skill-box">
+                    <h3>UI/UX & Design</h3>
+                    <ul>
+                        <li>User Interface Design</li>
+                        <li>Wireframing & Prototyping</li>
+                        <li>Motion Graphics</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATES SECTION -->
+        <section class="certificates grid-bg" id="certificates">
+            <div class="section-top">04 / CERTIFICATES & CREDENTIALS</div>
+
+            <div class="cert-grid">
+                <article class="cert-card">
+                    <img src="image/g.jpeg" alt="UX/UI Design Training Certificate">
+                    <div class="cert-info">
+                        <h4>UX/UI Design Course (50 Hours)</h4>
+                        <span>Learn More Institute for Training & Development</span>
+                    </div>
+                </article>
+
+                <article class="cert-card">
+                    <img src="image/WhatsApp Image 2026-10-06 at 2.01.51 PM.jpeg" alt="Graphic Design Training Certificate">
+                    <div class="cert-info">
+                        <h4>Graphic Design Course (60 Hours)</h4>
+                        <span>Learn More Institute for Training & Development</span>
+                    </div>
+                </article>
+
+                <article class="cert-card">
+                    <img src="image/WhatsApp Image 2026-10-06 at 2.01.50 PM.jpeg" alt="Management Skills Certificate">
+                    <div class="cert-info">
+                        <h4>المهارات الإدارية والكاريزما</h4>
+                        <span>سلسلة نوى للتدريب التقني</span>
+                    </div>
+                </article>
+
+                <article class="cert-card">
+                    <img src="image/certificate-2w9afbfnwqff-1787581860.jpg" alt="Certificate">
+                    <div class="cert-info">
+                        <h4>Introduction to Claude Cowork</h4>
+                        <span>Anthropic</span>
+                    </div>
+                </article>
+
+                <article class="cert-card">
+                    <img src="image/certificate-3p4eb554yfsv-1787680988.jpg" alt="Certificate">
+                    <div class="cert-info">
+                        <h4>AI Fluency for Educators</h4>
+                        <span>Anthropic</span>
+                    </div>
+                </article>
+
+                <article class="cert-card">
+                    <img src="image/certificate-8xuorm6f8h6w-1787682008.jpg" alt="Certificate">
+                    <div class="cert-info">
+                        <h4>Model Context Protocol</h4>
+                        <span>Anthropic</span>
+                    </div>
+                </article>
+
+                <article class="cert-card">
+                    <img src="image/certificate-9eqwygiq89qj-1786186066.jpg" alt="Certificate">
+                    <div class="cert-info">
+                        <h4>Claude 101</h4>
+                        <span>Anthropic</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact grid-bg" id="contact">
+            <div class="section-top">05 / GET IN TOUCH</div>
+            <h2 class="section-title">Let's Build Something Great Together</h2>
+
+            <div class="contact-grid">
+                <div class="contact-box">
+                    <strong>Phone Number</strong>
+                    <p><a href="tel:0592202660">0592202660</a></p>
+                </div>
+                <div class="contact-box">
+                    <strong>Email Address</strong>
+                    <p><a href="mailto:sfaraj1@smail.ucas.edu.ps">sfaraj1@smail.ucas.edu.ps</a></p>
+                </div>
+                <div class="contact-box">
+                    <strong>Social Links</strong>
+                    <p>
+                        <a href="https://www.linkedin.com/in/suzan-ahmad-7a7024203?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">LinkedIn</a> | 
+                        <a href="https://github.com/sfaraj1-commits" target="_blank">GitHub</a>
+                    </p>
+                </div>
+                <div class="contact-box">
+                    <strong>Location</strong>
+                    <p>Al-Zawaida – Near Al-Bahriya Camp</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="fullImage" alt="Zoomed View">
+        <div id="caption"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const projects = [
+                { title: "مساحاتي - Masahati Workspace Platform", desc: "A comprehensive space booking and facility management system.", url: "github.com/sfaraj1-commits" },
+                { title: "SKILLORA - Learning Platform", desc: "E-learning portal designed with clean UI/UX and seamless APIs.", url: "github.com/sfaraj1-commits" },
+                { title: "HomeFinder - Real Estate Portal", desc: "Real estate listing platform with advanced filtering controls.", url: "github.com/sfaraj1-commits" }
+            ];
+
+            let currentIndex = 0;
+            const titleEl = document.getElementById("preview-title");
+            const descEl = document.getElementById("preview-desc");
+            const urlEl = document.getElementById("preview-url");
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % projects.length;
+                titleEl.textContent = projects[currentIndex].title;
+                descEl.textContent = projects[currentIndex].desc;
+                urlEl.textContent = projects[currentIndex].url;
+            }, 3500);
+
+            const sections = document.querySelectorAll("section");
+            const navSteps = document.querySelectorAll(".scroll-step");
+
+            window.addEventListener("scroll", () => {
+                let current = "";
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                navSteps.forEach(step => {
+                    step.classList.remove("active");
+                    if (step.getAttribute("href") === `#${current}`) {
+                        step.classList.add("active");
+                    }
+                });
+            });
+
+            // Zoom Image Logic
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("fullImage");
+            const captionText = document.getElementById("caption");
+            const closeModal = document.querySelector(".close-modal");
+
+            const clickableImages = document.querySelectorAll(".cert-card img, .case-img img");
+
+            clickableImages.forEach(img => {
+                img.addEventListener("click", function () {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt || "";
+                });
+            });
+
+            closeModal.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

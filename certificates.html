@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificates & Achievements | Suzan Faraj</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">Suzan Faraj<span>.</span></div>
+    <div class="nav-links">
+      <a href="index.html#hero">Home</a>
+      <a href="index.html#projects">Case Studies</a>
+      <a href="certificates.html" class="active">Certificates</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact" class="btn-primary">Let's Talk</a>
+    </div>
+  </nav>
+
+  <!-- Certificates Hero Section -->
+  <section class="cert-hero">
+    <span class="badge-tag">Verified Credentials</span>
+    <h1>Certificates & Learning Vault</h1>
+    <p class="hero-subtitle">A showcase of my continuous learning journey, professional certifications, and technical achievements.</p>
+    
+    <!-- Quick Stats -->
+    <div class="cert-stats">
+      <div class="stat-box">
+        <h3>15+</h3>
+        <p>Certifications</p>
+      </div>
+      <div class="stat-box">
+        <h3>100%</h3>
+        <p>Verified Skills</p>
+      </div>
+      <div class="stat-box">
+        <h3>TOT</h3>
+        <p>Certified Trainer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter & Vault Section -->
+  <section class="cert-vault-section">
+    <!-- Filter Tabs -->
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all">All Credentials</button>
+      <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
+      <button class="filter-btn" data-filter="dev">Web Development</button>
+      <button class="filter-btn" data-filter="soft">Leadership & TOT</button>
+    </div>
+
+    <!-- Certificates Grid -->
+    <div class="cert-grid">
+      
+      <!-- Card 1: TOT Certificate -->
+      <div class="cert-card" data-category="soft" data-img="https://images.unsplash.com/photo-1589330694653-aded6f78655b?auto=format&fit=crop&w=800&q=80" data-title="Train the Trainer (TOT)" data-issuer="Professional Training Academy" data-date="2024">
+        <div class="cert-badge">Verified</div>
+        <div class="cert-img-container">
+          <img src="https://images.unsplash.com/photo-1589330694653-aded6f78655b?auto=format&fit=crop&w=800&q=80" alt="TOT Certificate">
+        </div>
+        <div class="cert-body">
+          <span class="cert-issuer">Leadership & Training</span>
+          <h3>Train the Trainer (TOT)</h3>
+          <p>Advanced methodology in technical instruction, public speaking, and workshop moderation.</p>
+          <div class="cert-footer">
+            <span class="cert-date">2024</span>
+            <button class="view-cert-btn">View Certificate →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: UI/UX Specialization -->
+      <div class="cert-card" data-category="uiux" data-img="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" data-title="UI/UX Professional Design" data-issuer="Google / Coursera" data-date="2023">
+        <div class="cert-badge">Verified</div>
+        <div class="cert-img-container">
+          <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" alt="UI/UX Design Certificate">
+        </div>
+        <div class="cert-body">
+          <span class="cert-issuer">Google / UX Design</span>
+          <h3>UI/UX Professional Design</h3>
+          <p>Wireframing, prototyping, user testing, and crafting high-fidelity interactive interfaces.</p>
+          <div class="cert-footer">
+            <span class="cert-date">2023</span>
+            <button class="view-cert-btn">View Certificate →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Web Development -->
+      <div class="cert-card" data-category="dev" data-img="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" data-title="Frontend Web Development" data-issuer="Modern Web Tech" data-date="2024">
+        <div class="cert-badge">Verified</div>
+        <div class="cert-img-container">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Web Dev Certificate">
+        </div>
+        <div class="cert-body">
+          <span class="cert-issuer">Frontend Engineering</span>
+          <h3>Frontend Web Development</h3>
+          <p>Building responsive web applications using HTML5, CSS3, JavaScript ES6+, and modern UI frameworks.</p>
+          <div class="cert-footer">
+            <span class="cert-date">2024</span>
+            <button class="view-cert-btn">View Certificate →</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Certificate View Modal -->
+  <div id="certModal" class="modal">
+    <div class="modal-content cert-modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="cert-modal-header">
+        <span id="modalIssuer" class="cert-issuer">Issuer Name</span>
+        <h2 id="modalTitle">Certificate Title</h2>
+      </div>
+      <img id="modalImg" src="" alt="Certificate Large Preview" class="modal-cert-img">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
