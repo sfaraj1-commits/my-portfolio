@@ -82,6 +82,14 @@
             transform: scale(1.03);
             filter: brightness(1.05);
         }
+
+        /* Smooth fade transition for browser preview slider */
+        .preview-title, .preview-desc, #preview-url {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .fade-out {
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
@@ -243,7 +251,7 @@
                             <span class="tech-tag">Front-End</span>
                             <span class="tech-tag">REST API</span>
                         </div>
-                        <a href="https://github.com/sfaraj1-commits" target="_blank" class="btn-primary btn-sm">VIEW CASE STUDY →</a>
+                        <a href="https://github.com/sfaraj1-commits/Skillora" target="_blank" class="btn-primary btn-sm">VIEW CASE STUDY →</a>
                     </div>
                 </article>
 
@@ -263,6 +271,26 @@
                     </div>
                     <div class="case-img">
                         <img src="image/ChatGPT Image 8 أكتوبر 2026، 11_18_34 ص.png" alt="HomeFinder Portal Preview">
+                    </div>
+                </article>
+
+                <!-- Case Study 04: Flixora -->
+                <article class="case-card reverse">
+                    <div class="case-img">
+                        <img src="image/ChatGPT Image 8 أكتوبر 2026، 11_52_13 ص.png" alt="FLIXORA Movies App Preview">
+                    </div>
+                    <div>
+                        <span class="case-tag">04 / CASE STUDY</span>
+                        <h3 class="case-title">
+                            <a href="https://github.com/sfaraj1-commits/Flixora" target="_blank" class="title-link">FLIXORA</a>
+                        </h3>
+                        <p class="case-desc">Modern Movie & Series Streaming Platform offering seamless media browsing, search, and watchlist experience.</p>
+                        <div class="tag-list">
+                            <span class="tech-tag">React / Front-End</span>
+                            <span class="tech-tag">Movie API</span>
+                            <span class="tech-tag">UI/UX Design</span>
+                        </div>
+                        <a href="https://github.com/sfaraj1-commits/Flixora" target="_blank" class="btn-primary btn-sm">VIEW CASE STUDY →</a>
                     </div>
                 </article>
             </div>
@@ -393,8 +421,8 @@
     </main>
 
     <!-- Lightbox Modal -->
-    <div id="imageModal" class="image-modal">
-        <span class="close-modal">&times;</span>
+    <div id="imageModal" class="image-modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <span class="close-modal" aria-label="Close modal">&times;</span>
         <img class="modal-content" id="fullImage" alt="Zoomed View">
         <div id="caption"></div>
     </div>
@@ -404,8 +432,9 @@
         document.addEventListener("DOMContentLoaded", () => {
             const projects = [
                 { title: "مساحاتي - Masahati Workspace Platform", desc: "A comprehensive space booking and facility management system.", url: "github.com/sfaraj1-commits" },
-                { title: "SKILLORA - Learning Platform", desc: "E-learning portal designed with clean UI/UX and seamless APIs.", url: "github.com/sfaraj1-commits" },
-                { title: "HomeFinder - Real Estate Portal", desc: "Real estate listing platform with advanced filtering controls.", url: "github.com/sfaraj1-commits" }
+                { title: "SKILLORA - Learning Platform", desc: "E-learning portal designed with clean UI/UX and seamless APIs.", url: "github.com/sfaraj1-commits/Skillora" },
+                { title: "HomeFinder - Real Estate Portal", desc: "Real estate listing platform with advanced filtering controls.", url: "github.com/sfaraj1-commits" },
+                { title: "FLIXORA - Movies & Series Platform", desc: "Modern movie discovery and streaming web application.", url: "github.com/sfaraj1-commits/Flixora" }
             ];
 
             let currentIndex = 0;
@@ -413,13 +442,25 @@
             const descEl = document.getElementById("preview-desc");
             const urlEl = document.getElementById("preview-url");
 
+            // Slider switch with smooth fade transition
             setInterval(() => {
-                currentIndex = (currentIndex + 1) % projects.length;
-                titleEl.textContent = projects[currentIndex].title;
-                descEl.textContent = projects[currentIndex].desc;
-                urlEl.textContent = projects[currentIndex].url;
+                titleEl.classList.add("fade-out");
+                descEl.classList.add("fade-out");
+                urlEl.classList.add("fade-out");
+
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % projects.length;
+                    titleEl.textContent = projects[currentIndex].title;
+                    descEl.textContent = projects[currentIndex].desc;
+                    urlEl.textContent = projects[currentIndex].url;
+
+                    titleEl.classList.remove("fade-out");
+                    descEl.classList.remove("fade-out");
+                    urlEl.classList.remove("fade-out");
+                }, 300);
             }, 3500);
 
+            // Active step indicator on scroll
             const sections = document.querySelectorAll("section");
             const navSteps = document.querySelectorAll(".scroll-step");
 
@@ -440,30 +481,35 @@
                 });
             });
 
-            // Zoom Image Logic
+            // Zoom Image Lightbox Logic
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("fullImage");
             const captionText = document.getElementById("caption");
             const closeModal = document.querySelector(".close-modal");
-
             const clickableImages = document.querySelectorAll(".cert-card img, .case-img img");
 
             clickableImages.forEach(img => {
-                img.addEventListener("click", function () {
+                img.addEventListener("click", function (e) {
                     modal.style.display = "block";
-                    modalImg.src = this.src;
-                    captionText.innerHTML = this.alt || "";
+                    modal.setAttribute("aria-hidden", "false");
+                    modalImg.src = e.currentTarget.src;
+                    captionText.textContent = e.currentTarget.alt || "";
                 });
             });
 
-            closeModal.addEventListener("click", () => {
+            const hideModal = () => {
                 modal.style.display = "none";
-            });
+                modal.setAttribute("aria-hidden", "true");
+            };
+
+            closeModal.addEventListener("click", hideModal);
 
             modal.addEventListener("click", (e) => {
-                if (e.target === modal) {
-                    modal.style.display = "none";
-                }
+                if (e.target === modal) hideModal();
+            });
+
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && modal.style.display === "block") hideModal();
             });
         });
     </script>
